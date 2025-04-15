@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+$primary-color: #0494DC;   // Azul vibrante
+$accent-color: #fcbc04;    // Amarillo dorado
+$secondary-color: #ac6b1d; // Marrón cálido
+$neutral-color: rgb(36, 29, 36); // Púrpura oscuro
+
+
+body {
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8fafc;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+  }
+  
+
+
+ 
+   
+  

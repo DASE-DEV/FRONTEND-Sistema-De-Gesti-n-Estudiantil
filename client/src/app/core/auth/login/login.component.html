@@ -1,0 +1,83 @@
+<!-- login.component.html -->
+<div class="login-container">
+  <div class="background-gradient"></div>
+  
+  <div class="login-card glass-effect">
+    <div class="login-header">
+      <h2 class="text-center mb-4">Iniciar Sesión</h2>
+    </div>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field mb-4">
+        <span class="p-float-label p-input-icon-right">
+          <i class="pi pi-envelope"></i>
+          <input 
+            id="username" 
+            type="text" 
+            pInputText 
+            formControlName="username" 
+            class="w-full"
+          >
+          <label for="username">Correo electrónico</label>
+        </span>
+        <small 
+          *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.dirty" 
+          class="p-error block mt-1"
+        >
+          Correo electrónico inválido
+        </small>
+      </div>
+      
+      <div class="field mb-4">
+        <span class="p-float-label p-input-icon-right">
+          <i class="pi pi-lock"></i>
+          <input 
+            id="password" 
+            type="password" 
+            pInputText 
+            formControlName="password" 
+            class="w-full"
+          >
+          <label for="password">Contraseña</label>
+        </span>
+        <small 
+          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.dirty" 
+          class="p-error block mt-1"
+        >
+          La contraseña debe tener al menos 6 caracteres
+        </small>
+      </div>
+      
+      <div class="field-checkbox mb-4">
+        <p-checkbox 
+          formControlName="rememberMe" 
+          [binary]="true" 
+          inputId="rememberMe"
+        ></p-checkbox>
+        <label for="rememberMe" class="ml-2">Recordarme</label>
+      </div>
+      
+      <div class="flex flex-column">
+        <button 
+          pButton 
+          type="submit" 
+          label="Iniciar Sesión" 
+          icon="pi pi-sign-in" 
+          [loading]="loading"
+          class="p-button-rounded glass-button mb-3"
+        ></button>
+        
+        <div class="text-center mt-3">
+          <a href="#" class="text-primary font-medium">¿Olvidaste tu contraseña?</a>
+        </div>
+        
+        <div class="text-center mt-3">
+          <span>¿No tienes cuenta? </span>
+          <a href="#" class="text-primary font-bold">Regístrate</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <p-toast position="top-right"></p-toast>
+</div>

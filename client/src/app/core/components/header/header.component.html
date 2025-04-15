@@ -1,0 +1,295 @@
+<div class="header-container">
+  <!-- Versión para pantallas grandes - visible solo en lg -->
+  <div class="flex align-items-center justify-content-between p-3 shadow-2 bg-white d-none d-lg-flex">
+    <!-- Sección izquierda -->
+    <div class="flex align-items-center">
+      <button pButton 
+              icon="pi pi-bars" 
+              class="p-button-rounded p-button-text p-button-lg mr-2" 
+              (click)="toggleSidebar()">
+      </button>
+      
+      <!-- Logo -->
+      <img src="/assets/images/logo-elim.png" height="50" class="mr-4" alt="Logo">
+    </div>
+    
+    <!-- Search box - Ancho fijo -->
+    <div class="search-container mx-4" style="width: 300px;">
+      <p-inputGroup>
+        <input type="text" pInputText placeholder="Buscar" class="w-full" />
+        <button type="button" pButton icon="pi pi-search" class="p-button-primary"></button>
+      </p-inputGroup>
+    </div>
+    
+    <!-- Sección derecha -->
+    <div class="flex align-items-center">
+      <!-- Notifications bell -->
+      <button pButton 
+              #notificationBtn
+              icon="pi pi-bell" 
+              class="p-button-rounded p-button-text p-button-lg mr-3"
+              (click)="op.toggle($event)">
+      </button>
+      <p-badge *ngIf="unreadNotifications > 0" 
+              severity="danger" 
+              [value]="unreadNotifications.toString()"
+              styleClass="notification-badge">
+      </p-badge>
+      
+   
+      
+    
+
+    <div>
+     <!-- Avatar -->
+<!-- Avatar -->
+<p-avatar 
+  image="assets/images/ejemplo.png"
+  styleClass="mr-2 cursor-pointer" 
+  size="large" 
+  shape="circle"
+  (click)="overlayPanel.toggle($event)"
+></p-avatar>
+
+<!-- OverlayPanel -->
+<p-overlayPanel
+ #overlayPanel [showCloseIcon]="true" 
+ [style]="{width: '250px'}" 
+ [dismissable]="true" 
+ [showTransitionOptions]="'150ms'" 
+ [hideTransitionOptions]="'150ms'">
+ <h4>Hola: Alexander Betancur</h4>
+ <h5 class="text-center">alebetmel&#64;gmail.com</h5>
+  <div class="flex flex-column-reverse gap-2 p-2">
+
+   
+    <button 
+    pButton type="button" 
+    label="Mi perfil" 
+    icon="pi pi-user" 
+    class="w-full" 
+    (click)="irAMiPerfil(overlayPanel)">
+  </button>
+    <button pButton type="button" label="Cerrar sesión" icon="pi pi-sign-out" 
+    severity="danger" class="w-50" (click)="cerrarSesion(overlayPanel)"></button>
+  </div>
+</p-overlayPanel>
+
+
+      
+    </div>
+       
+    
+    
+    </div>
+  </div>
+
+  <!-- Versión para tablets - visible solo en md -->
+  <div class="flex align-items-center justify-content-between p-3 shadow-2 bg-white d-none d-md-flex d-lg-none">
+    <!-- Sección izquierda -->
+    <div class="flex align-items-center">
+      <button pButton 
+              icon="pi pi-bars" 
+              class="p-button-rounded p-button-text p-button-lg mr-2" 
+              (click)="toggleSidebar()">
+      </button>
+      
+      <!-- Logo -->
+      <img src="/assets/images/logo-elim.png" height="30" class="mr-2" alt="Logo">
+    </div>
+    
+    <!-- Search box - Ancho fijo pero más pequeño -->
+    <div class="search-container mx-2" style="width: 150px;">
+      <p-inputGroup>
+        <input type="text" pInputText placeholder="Keyword" class="w-full" />
+        <button type="button" pButton icon="pi pi-search" class="p-button-primary"></button>
+      </p-inputGroup>
+    </div>
+    
+    <!-- Sección derecha - Versión reducida -->
+    <div class="flex align-items-center">
+      <!-- Notifications bell -->
+      <button pButton 
+              #notificationBtnMd
+              icon="pi pi-bell" 
+              class="p-button-rounded p-button-text p-button-lg mr-2"
+              (click)="op.toggle($event)">
+      </button>
+      <p-badge *ngIf="unreadNotifications > 0" 
+              severity="danger" 
+              [value]="unreadNotifications.toString()"
+              styleClass="notification-badge">
+      </p-badge>
+      
+      <!--   menú desplegable -->
+     
+    </div>
+  </div>
+
+  <!-- Versión para móviles - visible por debajo de md -->
+  <div class="flex align-items-center justify-content-between p-2 shadow-2 bg-white d-flex d-md-none">
+    <div class="flex align-items-center">
+      <button pButton 
+              icon="pi pi-bars" 
+              class="p-button-rounded p-button-text mr-2" 
+              (click)="toggleSidebar()">
+      </button>
+      
+      <!-- Logo pequeño -->
+      <img src="/assets/images/logo-elim.png" height="30" alt="Logo">
+    </div>
+    
+    <!-- Botones esenciales -->
+    <div class="flex align-items-center">
+      <!-- Botón de búsqueda - abre un overlay -->
+      <button pButton 
+              icon="pi pi-search" 
+              class="p-button-rounded p-button-text mr-2"
+              (click)="searchOverlay.toggle($event)">
+      </button>
+      
+      <!-- Notificaciones -->
+      <button pButton 
+              #notificationBtnSm
+              icon="pi pi-bell" 
+              class="p-button-rounded p-button-text mr-2"
+              (click)="op.toggle($event)">
+      </button>
+      <p-badge *ngIf="unreadNotifications > 0" 
+              severity="info" 
+              [value]="unreadNotifications.toString()"
+              styleClass="notification-badge-sm">
+      </p-badge>
+      
+     
+    </div>
+  </div>
+</div>
+
+<!-- Side Menu -->
+<p-sidebar [(visible)]="sidebarVisible" 
+          [baseZIndex]="10000"
+          [style]="{width:'300px'}"
+          styleClass="p-sidebar-md"
+          position="left">
+       <div class="text-center justify-content-center mr-4">
+          
+  <img class="align-content-center" src="/assets/images/logo-elim.png" height="60" alt="Logo">
+        <h3 >Instituto Bíblico Elim Colombia</h3>
+       </div>
+       <p-divider />
+  <ul class="list-none p-0 m-0  text-black-900">
+
+    <a class="no-underline"    routerLink="/#" >
+    <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+    <i class="pi pi-home mr-2"></i>Inicio
+    </li>
+  </a>
+    <a class="no-underline"    routerLink="/asignaturas" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-pi pi-book mr-2"></i>Asignaturas
+    </li>
+  </a>
+    <a class="no-underline" routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-users mr-2"></i>Profesores
+    </li>
+  </a>
+    <a class="no-underline" routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-file mr-2 "></i>Mensajes
+    </li>
+  </a>
+    <a class="no-underline"routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-calendar-times mr-2"></i>Calendario
+    </li>
+  </a>
+
+    <a class="no-underline" routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class=" pi pi-pencil mr-2"></i>Matrícula
+    </li>
+  </a>
+    
+    <a class="no-underline"routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class=" pi pi-user mr-2"></i>Observador
+    </li>
+  </a>
+
+    <a class="no-underline" routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class=" pi pi-envelope mr-2"></i>Citaciones
+    </li>
+  </a>
+
+    <a class="no-underline" routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200">
+      <i class=" pi pi-briefcase  mr-2"></i>Cartera
+    </li>
+  </a>
+
+  <a class="no-underline" routerLink="/#" >
+    <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-book mr-2"></i>Manual Convivencia
+    </li>
+  </a>
+
+    <a class="no-underline"routerLink="/#" >
+      <li class="p-3 hover:bg-gray-100 cursor-pointer border-bottom-1 border-gray-200 ">
+      <i class="pi pi-question-circle mr-2"></i>Ayuda
+    </li>
+  </a>
+
+  </ul>
+  <p-divider />
+    <!-- FOOTER -->
+    <div class="menu-footer justify-content-center gap-3">
+      <small>© 2025 Elim Medellín</small>
+    </div>
+</p-sidebar>
+
+<!-- Notifications panel -->
+<p-overlayPanel #op>
+  <ng-template pTemplate>
+    <h3>Notificaciones</h3>
+    <div *ngIf="notifications.length === 0" class="p-3 text-center">
+      No tienes notificaciones
+    </div>
+    <div *ngFor="let notification of notifications" 
+        class="p-3 border-bottom-1 border-gray-200 hover:bg-gray-100">
+      <div class="flex align-items-center">
+        <i [class]="notification.icon + ' mr-2 text-primary'"></i>
+        <div>
+          <div class="font-bold">{{notification.title}}</div>
+          <div class="text-sm">{{notification.message}}</div>
+          <div class="text-xs text-gray-500">{{notification.time}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="notifications.length > 0" class="p-2 text-center">
+      <button pButton label="Marcar todas como leídas" 
+              class="p-button-text p-button-sm"
+              (click)="markAllAsRead()">
+      </button>
+    </div>
+  </ng-template>
+</p-overlayPanel>
+
+<!-- Panel de búsqueda para móviles -->
+<p-overlayPanel #searchOverlay>
+  <ng-template pTemplate>
+    <h3>Buscar</h3>
+    <div class="w-full p-2">
+      <p-inputGroup>
+        <input type="text" pInputText placeholder="Keyword" class="w-full" />
+        <button type="button" pButton icon="pi pi-search" class="p-button-primary"></button>
+      </p-inputGroup>
+    </div>
+  </ng-template>
+</p-overlayPanel>
+
+<!-- Menú de usuario -->
+<p-menu #userMenu [popup]="true" [model]="userMenuItems"></p-menu>
+

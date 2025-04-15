@@ -1,0 +1,166 @@
+/* login.component.scss */
+:host {
+  display: block;
+  height: 100%;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  z-index: -2;
+}
+
+/* Elementos decorativos de fondo */
+.background-gradient::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.6) 0%, rgba(99, 102, 241, 0) 70%);
+  top: -400px;
+  right: -300px;
+  z-index: -1;
+}
+
+.background-gradient::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(9, 13, 224, 0.6) 0%, rgba(239, 219, 3, 0.772) 70%);
+  bottom: -300px;
+  left: -200px;
+  z-index: -1;
+}
+
+.login-card {
+  width: 400px;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-header {
+  margin-bottom: 2rem;
+  
+  h2 {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+:host ::ng-deep {
+  // Estilizar inputs
+  .p-inputtext {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255,.4);
+    }
+    
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+  
+  // Estilizar las etiquetas flotantes
+  .p-float-label label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  // Estilizar iconos dentro de inputs
+  .p-input-icon-right i {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  // Estilizar checkbox
+  .p-checkbox .p-checkbox-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    &.p-highlight {
+      background: #6366f1;
+      border-color: #6366f1;
+    }
+  }
+  
+  // Estilizar label del checkbox
+  .field-checkbox label {
+    color: white;
+  }
+  
+  // Estilizar botón principal
+  .glass-button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 600;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    &:active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  // Estilizar enlaces
+  a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+  
+  // Mostrar mensajes de error correctamente
+  .p-error {
+    color: #ffcdd2;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 576px) {
+  .login-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+  
+
+
+
+
+

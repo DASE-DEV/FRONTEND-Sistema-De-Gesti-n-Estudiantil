@@ -1,0 +1,18 @@
+<div class="avatar-wrapper" [ngClass]="containerClass">
+    <p-avatar 
+      [image]="imageUrl" 
+      [label]="label" 
+      [icon]="icon"
+      [size]="size"
+      [shape]="shape"
+      [style]="style"
+      [styleClass]="styleClass"
+      [pTooltip]="tooltip" 
+      [tooltipPosition]="tooltipPosition">
+    </p-avatar>
+    <p-badge *ngIf="badgeValue" 
+      [value]="badgeValue" 
+      [severity]="badgeSeverity"
+      [size]= "normal">
+    </p-badge>
+  </div>
