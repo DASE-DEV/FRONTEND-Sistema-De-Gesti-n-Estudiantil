@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,8 +20,9 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     InputTextModule,
     CheckboxModule,
-    ToastModule
-  ],
+    ToastModule,
+    
+],
   providers: [MessageService]
 })
 export class LoginComponent {
@@ -66,4 +68,5 @@ export class LoginComponent {
       });
     }
   }
+  
 }

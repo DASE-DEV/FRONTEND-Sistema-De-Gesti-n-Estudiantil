@@ -8,12 +8,14 @@ import { LoginComponent } from './core/auth/login/login.component';
 import { DashboardSuperAdminComponent } from './features/super-admin/dashboard-super-admin/dashboard-super-admin.component';
 import { SidemenuComponent } from './core/components/sidemenu/sidemenu.component';
 import { StudentLayoutComponent } from './core/layouts/student-layout/student-layout.component';
+import { CreateProgramComponent } from './features/super-admin/programs/create-program/create-program/create-program.component';
 
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard-super-admin', component: DashboardSuperAdminComponent },
+  { path: 'create-program', component: CreateProgramComponent },
   { path: 'student', component:StudentLayoutComponent },
   { path: 'pruebas', component: PruebasComponent },
   { path: 'spinner', component:  LoadingSpinnerComponent },

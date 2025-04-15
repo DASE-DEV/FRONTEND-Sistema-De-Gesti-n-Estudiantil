@@ -1,10 +1,11 @@
 <!-- login.component.html -->
+
 <div class="login-container">
   <div class="background-gradient"></div>
   
   <div class="login-card glass-effect">
     <div class="login-header">
-      <h2 class="text-center mb-4">Iniciar Sesión</h2>
+      <h2 class="text-center mb-4 ">Iniciar Sesión</h2>
     </div>
     
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -62,18 +63,44 @@
           pButton 
           type="submit" 
           label="Iniciar Sesión" 
-          icon="pi pi-sign-in" 
+          icon="pi pi-sign-in"  
+        
           [loading]="loading"
-          class="p-button-rounded glass-button mb-3"
+          class="p-button-rounded glass-button mb-3 w-full  "
+        
         ></button>
+        <div class="text-center my-3">
+          <span class="divider">O continúa con</span>
+        </div>
+        
+        <div class="social-login-buttons">
+          <button 
+            pButton 
+            type="button" 
+            class="p-button-rounded p-button-outlined google-button"
+            icon="pi pi-google"
+          >
+            <span>Google</span>
+          </button>
+          
+          <button 
+            pButton 
+            type="button" 
+            class="p-button-rounded p-button-outlined apple-button"
+            icon="pi pi-apple"
+          >
+            <span>Apple</span>
+          </button>
+        </div>
+
         
         <div class="text-center mt-3">
-          <a href="#" class="text-primary font-medium">¿Olvidaste tu contraseña?</a>
+          <a href="#" class=" font-medium $text-accent">¿Olvidaste tu contraseña?</a>
         </div>
         
         <div class="text-center mt-3">
           <span>¿No tienes cuenta? </span>
-          <a href="#" class="text-primary font-bold">Regístrate</a>
+          <a href="#" class=" font-italic font-light">Regístrate</a>
         </div>
       </div>
     </form>
