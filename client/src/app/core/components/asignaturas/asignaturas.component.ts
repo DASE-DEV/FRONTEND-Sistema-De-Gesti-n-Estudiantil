@@ -4,8 +4,8 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button'; 
 import { RippleModule } from 'primeng/ripple'; 
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from '../core/components/footer/footer.component';
-import { HeaderComponent } from "../core/components/header/header.component";
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-asignaturas',
