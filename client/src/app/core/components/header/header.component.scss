@@ -1,0 +1,103 @@
+
+a{
+  color:black;
+}
+
+
+/* Añade estas clases si PrimeFlex no las proporciona o si las estás usando con Bootstrap */
+@media (min-width: 0px) {
+  .d-flex {
+    display: flex !important;
+  }
+  
+  .d-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .d-sm-flex {
+    display: flex !important;
+  }
+  
+  .d-sm-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-flex {
+    display: flex !important;
+  }
+  
+  .d-md-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-flex {
+    display: flex !important;
+  }
+  
+  .d-lg-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-flex {
+    display: flex !important;
+  }
+  
+  .d-xl-none {
+    display: none !important;
+  }
+}
+
+/* Ajustes adicionales */
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.notification-badge-sm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+}
+
+/* Ajustes responsive adicionales para el sidebar */
+@media screen and (max-width: 768px) {
+  :host ::ng-deep .p-sidebar {
+    width: 80% !important;
+    max-width: 300px;
+  }
+}
+
+/* Cuando la pantalla es muy pequeña, ajustar los elementos del header */
+@media screen and (max-width: 360px) {
+  :host button.p-button {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  :host img[alt="Logo"] {
+    height: 24px;
+  }
+  .menu-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+   
+   
+  }
+}
